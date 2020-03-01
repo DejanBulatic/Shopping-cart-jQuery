@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping cart</title>
+    <style>
+        .products {
+            padding-top: 100px;
+            display: grid;
+            grid-template-columns: 20% 20% 20%;
+            gap: 1rem;
+            justify-content: center;
+        }
 
+        .product {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0.5rem;
+            border: 0.0625rem solid #aaaaaa;
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="products"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        
+        //Products
+        const products = [
+            { "id": 1, "name": "Cupcake white frosting", "image": "./images/cake1.jpg", "price": 90, "quantity": 4 },
+            { "id": 2, "name": "Cupcake strawberry toppings", "image": "./images/cake2.jpg", "price": 90, "quantity": 2 },
+            { "id": 3, "name": "Cupcake fruit toppings", "image": "./images/cake3.jpg", "price": 100, "quantity": 0 }
+        ]
+        //Variables
+        const $productsDiv = $(".products");
+
+        for (let product of products) {
+
+            //Display products dynamically
+            $product = $(
+                "<div class='product'>" +
+                "<h3>" + product.name + "</h3>" +
+                "<div class='product-image'>" +
+                "<img src='" + product.image + "'/>" +
+                "</div>" +
+                "<p><b>Price: </b> " + product.price + "</p>" +
+                "</div>"
+
+            );
+            $productsDiv.append($product);
+        }
     </script>
 
 </body>
+
 </html>
