@@ -40,7 +40,17 @@
         //Variables
         const $productsDiv = $(".products");
 
+
         for (let product of products) {
+            //Buy button
+            $buttonBuy = $("<button></button>");
+            if (product.quantity == 0) {
+                $buttonBuy.html("Not in stock");
+                $buttonBuy.prop("disabled", true);
+            } else {
+                $buttonBuy.html("buy");
+            }
+
 
             //Display products dynamically
             $product = $(
@@ -53,6 +63,9 @@
                 "</div>"
 
             );
+            //Appending buy button to product
+            $product.append($buttonBuy);
+            //Appending product to products div
             $productsDiv.append($product);
         }
     </script>

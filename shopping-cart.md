@@ -115,7 +115,7 @@ And if we look in the browser here are our products
 
 ### Paste in css
 
-To make this look normal Im just goint to paste some css that I have prepared
+To make this look beautiful Im goint to paste some css that I have prepared
 
 ```css
     <style>
@@ -139,6 +139,58 @@ To make this look normal Im just goint to paste some css that I have prepared
 ```
 
 and now it looks much better
+
+
+
+# Buy buttons
+
+The next step is to add a button to each product. The button will say buy if we have the product in stock and it will say not in stock  if we have run out of the product. So to make that happen Im first going to create a button dynamically in our existing for loop . And then Im going to use a if statement and say
+
+```javascript
+            if (product.quantity == 0) {
+                $buttonBuy.html("Not in stock");
+                $buttonBuy.prop("disabled", true);
+            } else {
+                $buttonBuy.html("buy");
+
+            }
+```
+
+If product quantity is 0 the button innerHTML will say not in stock and we will give it the disabled property
+
+Else the button will say buy
+
+And then we append our button to the product
+
+```javascript
+            //Display products dynamically
+            $product = $(
+                "<div class='product'>" +
+                "<h3>" + product.name + "</h3>" +
+                "<div class='product-image'>" +
+                "<img src='" + product.image + "'/>" +
+                "</div>" +
+                "<p><b>Price: </b> " + product.price + "				</p>" +
+                "</div>"
+
+            );
+            //Appending buy button to product
+            $product.append($buttonBuy);
+            //Appending product to products div
+            $productsDiv.append($product);
+```
+
+
+
+stopped at website building LS2  2/6 at 02:26:32
+
+
+
+
+
+
+
+
 
 
 
